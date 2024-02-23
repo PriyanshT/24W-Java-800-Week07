@@ -1,4 +1,4 @@
-package org.georgiancollege.week07;
+package org.georgiancollege.week07.Utilities;
 
 import java.nio.file.Files;
 import java.nio.file.Path;

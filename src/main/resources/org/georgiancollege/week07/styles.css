@@ -1,0 +1,8 @@
+.root{
+    -fx-font-family: "Arial Black";
+    -fx-background-color: "blue";
+}
+
+.topLabel{
+    -fx-background-color: "red";
+}

@@ -1,9 +1,12 @@
-package org.georgiancollege.week07;
+package org.georgiancollege.week07.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import org.georgiancollege.week07.Utilities.DBUtility;
+import org.georgiancollege.week07.Model.Book;
+import org.georgiancollege.week07.Utilities.SceneChanger;
 
 import java.net.URL;
 import java.util.ResourceBundle;

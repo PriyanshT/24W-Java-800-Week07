@@ -1,4 +1,4 @@
-package org.georgiancollege.week07;
+package org.georgiancollege.week07.Model;
 
 import java.util.Arrays;
 import java.util.List;

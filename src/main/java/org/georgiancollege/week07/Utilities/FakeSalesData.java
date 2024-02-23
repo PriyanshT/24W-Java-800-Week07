@@ -1,4 +1,4 @@
-package org.georgiancollege.week07;
+package org.georgiancollege.week07.Utilities;
 
 import java.security.SecureRandom;
 import java.time.LocalDate;
