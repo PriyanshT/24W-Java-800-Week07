@@ -1,7 +1,10 @@
 package org.georgiancollege.week07;
 
+import javafx.scene.chart.XYChart;
+
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class DBUtility {
     // create variables to hold username, password and connection url
@@ -81,5 +84,22 @@ public class DBUtility {
         }
 
         return books;
+    }
+
+    public static XYChart.Series<String, Integer> getChartDataFromDB() {
+        XYChart.Series<String, Integer> chartData = new XYChart.Series<>();
+        ArrayList<Book> books = getBooksFromDB();
+        chartData.setName("2024");
+
+//        chartData.getData().add(new XYChart.Data<>("Fake Book 1", 20));
+//        chartData.getData().add(new XYChart.Data<>("Fake Book 2", 40));
+//        chartData.getData().add(new XYChart.Data<>("Fake Book 3", 60));
+
+        // add all the books data to chartData
+        for(Book book:books){
+            chartData.getData().add(new XYChart.Data<>(book.getBookName(), book.getUnitsSold()));
+        }
+
+        return chartData;
     }
 }
