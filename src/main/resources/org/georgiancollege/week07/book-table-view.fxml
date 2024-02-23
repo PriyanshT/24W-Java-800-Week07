@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-
+<?import javafx.scene.layout.VBox?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.georgiancollege.week07.BookTableController">
    <children>
@@ -39,6 +40,14 @@
                </children>
             </HBox>
          </bottom>
+         <right>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="40.0" BorderPane.alignment="CENTER">
+               <children>
+                  <CheckBox fx:id="expensiveCheckBox" mnemonicParsing="false" onAction="#manipulateTable" text="Expensive" />
+                  <CheckBox fx:id="availableCheckBox" mnemonicParsing="false" onAction="#manipulateTable" text="Available" />
+               </children>
+            </VBox>
+         </right>
       </BorderPane>
    </children>
 </AnchorPane>

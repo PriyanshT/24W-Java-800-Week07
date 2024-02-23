@@ -53,13 +53,14 @@ public class DBUtility {
     }
 
     // a static function which will retrieve from db and return an ArrayList
-    public static ArrayList<Book> getBooksFromDB(){
+    public static ArrayList<Book> getBooksFromDB(String clause){
         ArrayList<Book> books = new ArrayList<>();
 
         String sql = "SELECT books.book_id, books.book_name, books.author, books.genre, books.price, books.is_available, COUNT(bookSales.sold_date) AS \"units_sold\"\n" +
                 "FROM books\n" +
                 "INNER JOIN bookSales\n" +
                 "ON books.book_id = bookSales.book_id\n" +
+                "WHERE " + clause + "\n" +
                 "GROUP BY books.book_id;";
 
         try(
@@ -88,7 +89,7 @@ public class DBUtility {
 
     public static XYChart.Series<String, Integer> getChartDataFromDB() {
         XYChart.Series<String, Integer> chartData = new XYChart.Series<>();
-        ArrayList<Book> books = getBooksFromDB();
+        ArrayList<Book> books = getBooksFromDB("1");
         chartData.setName("2024");
 
 //        chartData.getData().add(new XYChart.Data<>("Fake Book 1", 20));
@@ -98,6 +99,21 @@ public class DBUtility {
         // add all the books data to chartData
         for(Book book:books){
             chartData.getData().add(new XYChart.Data<>(book.getBookName(), book.getUnitsSold()));
+        }
+
+        return chartData;
+    }
+
+    public static XYChart.Series<String, Integer> getAvailableChartDataFromDB() {
+        XYChart.Series<String, Integer> chartData = new XYChart.Series<>();
+        ArrayList<Book> books = getBooksFromDB("1");
+        chartData.setName("2024");
+
+        // add only available books data to chartData
+        for(Book book:books){
+            if(book.isAvailable()){
+                chartData.getData().add(new XYChart.Data<>(book.getBookName(), book.getUnitsSold()));
+            }
         }
 
         return chartData;
